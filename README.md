@@ -1,4 +1,5 @@
 Binary Trees data structure in C
+--------------------------------
 Requirements
 ============
 General
