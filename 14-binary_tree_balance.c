@@ -32,7 +32,7 @@ size_t calculate_right_height(const binary_tree_t *tree)
 }
 
 /**
-* binary_tree_balance(const binary_tree_t *tree)
+* binary_tree_balance - checks the balance of a binary tree
 * @tree: root of the binary tree
 *
 * Return: 0 if tree is NULL. height of left subtree
