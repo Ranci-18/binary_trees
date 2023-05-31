@@ -1,34 +1,21 @@
 #include "binary_trees.h"
 /**
-* calculate_left_height - calculates height of the left subtree
+* calculate_height - calculates height of the subtree
 * @tree: root of the binary tree
 *
 * Return: 0 if tree is NULL. height of left subtree
 */
-size_t calculate_left_height(const binary_tree_t *tree)
+size_t calculate_height(const binary_tree_t *tree)
 {
-	size_t height = 0;
+	size_t left, right = 0;
 
 	if (!tree)
 		return (0);
-	height = calculate_left_height(tree->left);
-	return (height + 1);
-}
-
-/**
-* calculate_right_height - calculates height of the right subtree
-* @tree: root of the binary tree
-*
-* Return: 0 if tree is NULL. height of left subtree
-*/
-size_t calculate_right_height(const binary_tree_t *tree)
-{
-	size_t height = 0;
-
-	if (!tree)
-		return (0);
-	height = calculate_right_height(tree->right);
-	return (height + 1);
+	left = calculate_height(tree->left);
+	right = calculate_height(tree->right);
+	left += 1;
+	right += 1;
+	return ((left > right) ? left : right);
 }
 
 /**
@@ -43,6 +30,6 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (!tree)
 		return (0);
-	balance = calculate_left_height(tree) - calculate_right_height(tree);
+	balance = calculate_height(tree->left) - calculate_height(tree->right);
 	return (balance);
 }
