@@ -40,7 +40,7 @@ size_t calculate_height(const binary_tree_t *tree)
 * @tree: root of the binary tree
 *
 * Return: 0 if tree is NULL. height of left subtree
-*/
+
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	int balance = 0;
@@ -50,7 +50,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 	balance = calculate_height(tree->left) - calculate_height(tree->right);
 	return (balance);
 }
-
+*/
 
 /**
 * binary_tree_is_perfect - checks if binary tree is perfect
@@ -60,15 +60,19 @@ int binary_tree_balance(const binary_tree_t *tree)
 */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int balance = 0, is_full = 0;
+	/*int balance = 0;*/
+	int is_full = 0;
+	size_t left_height, right_height;
 
 	if (!tree)
 		return (0);
 
-	balance = binary_tree_balance(tree);
+	/* balance = binary_tree_balance(tree); */
 	is_full = binary_tree_is_full(tree);
+	left_height = calculate_height(tree->left);
+	right_height = calculate_height(tree->right);
 
-	if (balance == 0 && is_full == 1)
+	if ((left_height == right_height) && is_full == 1)
 		return (1);
 	return (0);
 }
