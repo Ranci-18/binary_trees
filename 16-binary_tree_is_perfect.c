@@ -30,9 +30,8 @@ size_t calculate_height(const binary_tree_t *tree)
 		return (0);
 	left = calculate_height(tree->left);
 	right = calculate_height(tree->right);
-	left += 1;
-	right += 1;
-	return ((left > right) ? left : right);
+
+	return (1 + (left > right) ? left : right);
 }
 
 /**
